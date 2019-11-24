@@ -1,0 +1,16 @@
+{
+  "name": "simplify",
+  "version": "1.0.0",
+  "description": "Simplify is progressive css framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-sass": "node-sass --output-style expanded --source-map true simplify.scss css/simplify.css",
+    "start": "npm run build-sass -- --watch"
+  },
+  "author": "Kishor Kumar Namdeo",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.13.0"
+  }
+}
