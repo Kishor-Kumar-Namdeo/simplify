@@ -1,305 +1,142 @@
 @import './scss/variables';
+@import './scss/functions-mixins';
+@import './scss/mini-reset';
 
-
-@each $screen, $size in map-merge(('base': auto ), map-deep-get($config, 'screens')) {
+@each $screen, $size in map-merge(('default': default ), map-deep-get($config, 'screens')) {
   $prefix: '';
-  @if $screen != 'base' {
+  @if $screen != 'default' {
     $prefix:'#{$screen}\\:';
   }
   @include screen ($screen, $size){
-    @each $name in map-deep-get($plugins, 'textAligns') {
-      .#{$prefix}text-#{$name} {
-        text-align: $name;
-      }
-    }
-
-    @each $name, $value in map-deep-get($plugins, 'textTransforms'){
-      .#{$prefix}text-#{$name} {
-        text-transform: $value;
-      }
-    }
-
-    @each $name, $value in  map-deep-get($plugins, 'textDecorations') {
-      .#{$prefix}text-#{$name} {
-        text-decoration: $value;
-      }
-    }
-
-    @each $name, $value in map-deep-get($config, 'fontSizes') {    
-      .#{$prefix}text-#{$name} {
-        font-size: $value;
-      }
-    }
-    @each $name, $value in map-deep-get($config, 'fontWeight') {
-      .#{$prefix}font-weight-#{$name} {
-        font-weight: $value;
-      }
-    }
-    @each $name, $value in map-deep-get($plugins, 'backgroundPosition') {
-      .#{$prefix}bg-#{$name} {
-        background-position: $value;
-      }
-    }
-    @each $name, $value in map-deep-get($plugins, 'backgroundSize') {
-      .#{$prefix}bg-#{$name} {
-        background-size: $value;
-      }
-    }
-    @each $name, $value in map-deep-get($plugins, 'backgroundAttachment') {
-      .#{$prefix}bg-#{$name} {
-        background-attachment: $value;
-      }
-    }
-    @each $name, $value in map-deep-get($plugins, 'backgroundRepeat') {
-      .#{$prefix}bg-#{$name} {
-        background-repeat: $value;
-      }
-    }
-    @each $name, $value in map-deep-get($config, 'borderWidths') {
-      @if $name == 'default' {
-        .#{$prefix}border{
-          border-width: $value;
-        }
-      } @else {
-        .#{$prefix}border-#{$name} {
-          border-width: $value;
-        }
-      }
-    }
-    @each $name, $value in map-deep-get($config, 'borderStyle') {
-      .#{$prefix}border-#{$name} {
-        border-style: $value;
-      }
-    }
-
-    @each $name, $value in map-deep-get($config, 'borderRadius') {
-      @if $name == 'default' {
-        .#{$prefix}border-rounded{
-          border-radius: $value;
-        }
-      } @else {
-        .#{$prefix}border-rounded-#{$name} {
-          border-radius: $value;
-        }
-      }
-    }
-    @each $name, $value in map-deep-get($plugins, 'display') {
-      .#{$prefix}display-#{$name} {
-        display: $value;
-      }
-    }
-    @each $name, $value in map-deep-get($plugins, 'alignContent') {
-      .#{$prefix}align-content-#{$name} {
-        align-content: $value;
-      }
-    }
-    @each $name, $value in map-deep-get($plugins, 'alignItems') {
-      .#{$prefix}align-items-#{$name} {
-        align-items: $value;
-      }
-    }
-    @each $name, $value in map-deep-get($plugins, 'alignSelf') {
-      .#{$prefix}align-self-#{$name} {
-        align-self: $value;
-      }
-    }
-    @each $name, $value in map-deep-get($plugins, 'appearance') {
-      .#{$prefix}appearance-#{$name} {
-        appearance: $value;
-      }
-    }
-    @each $name, $value in map-deep-get($plugins, 'flexDirection') {
-      .#{$prefix}flex-direction-#{$name} {
-        flex-direction: $value;
-      }
-    }
-
-     @each $name, $value in map-deep-get($plugins, 'flex') {
-      .#{$prefix}flex-#{$name} {
-        flex: $value;
-      }
-    }
-
-    @each $name, $value in map-deep-get($plugins, 'flexGrow') {
-      .#{$prefix}flex-grow-#{$name} {
-        flex-grow: $value;
-      }
-    }
-    @each $name, $value in map-deep-get($plugins, 'flexShrink') {
-      .#{$prefix}flex-shrink-#{$name} {
-        flex-shrink: $value;
-      }
-    }
-
-    @each $name, $value in map-deep-get($plugins, 'flexShrink') {
-      .#{$prefix}flex-shrink-#{$name} {
-        flex-shrink: $value;
-      }
-    }
-
-    @each $name, $value in map-deep-get($plugins, 'flexWrap') {
-      .#{$prefix}flex-wrap-#{$name} {
-        flex-wrap: $value;
-      }
-    }
-
-    @each $name, $value in map-deep-get($plugins, 'order') {
-      .#{$prefix}order-#{$name} {
-        order: $value;
-      }
-    }
-    
-    
-
-
-
-
-    @each $name, $value in map-deep-get($config, 'zIndex') {
-      .#{$prefix}z-index-#{$name} {
-        z-index: $value;
-      }
-    }
-    @each $name, $value in map-deep-get($plugins, 'boxShadow') {
-      @if $name == 'default' and $prefix == '' {
-        .#{$prefix}box-shadow{
-          box-shadow: $value;
-        }
-      } @else {
-        .#{$prefix}box-shadow-#{$name} {
-          box-shadow: $value;
-        }
-      }
-    }
-    @each $name, $value in map-deep-get($config, 'opacity') {
-      .#{$prefix}opacity-#{$name}{
-        opacity: $value;
-      }
-    }
-
-    @each $name, $value in map-merge(map-deep-get($config, 'spacings'), ('auto': auto )){
-      @if $name != 'auto' {
-        .#{$prefix}p-#{$name} {
-          padding: $value;
-        }
-        .#{$prefix}m-#{$name} {
-          margin: $value;
-        }
-        @if $name != '0'{
-          .#{$prefix}-m-#{$name} {
-            margin: -$value;
+    @each $key, $val in $constants {
+      @if type-of($val) == 'map' {
+        @each $name, $value in map-deep-get($constants, $key) {
+          $finalVal: $value;
+          @if type_of($value) == 'string' {
+            $finalVal: unquote($value);
           }
-        }
-      }
-      @each $name1, $value1 in map-deep-get($plugins, 'directions'){
-        @if $name1 == 'x'{
-          @if $name != 'auto' {
-            .#{$prefix}p-#{$name1}-#{$name} {
-              padding-left: $value;
-              padding-right: $value;
+          @if $name == 'default' {
+            .#{$prefix}#{$key}{
+              #{$key}: $finalVal;
+            }
+          } @else {
+            .#{$prefix}#{$key}-#{$name} {
+              #{$key}: $finalVal;
             }
           }
-          .#{$prefix}m-#{$name1}-#{$name} {
+        }
+      } @else {
+        .#{$key} {
+          #{$key}: $val
+        }
+      }
+    }
+    @each $key, $val in (default: 'default', min: 'min', max: 'max') {
+      @each $key1, $val1 in (height: 'height', width: 'width') {
+        @each $name, $value in map-merge(map-deep-get-values($config, 'spacings'),map-deep-get-values($helper, $val1))  {
+          @if $key == 'default' {
+            .#{$prefix}#{$key1}-#{$name} {
+              #{$val1}: $value;
+            }
+          } @else {
+            .#{$prefix}#{$key}-#{$key1}-#{$name} {
+              #{$val}-#{$val1}: $value;
+            }
+          }
+        }
+      }
+    }
+
+    @each $name, $value in map-merge(('auto': auto ), map-deep-get-values($config, 'spacings')){
+      .#{$prefix}margin-#{$name} {
+        margin: $value;
+      }
+      @if $name != 'auto' and $value != 0 {
+        .#{$prefix}-margin-#{$name} {
+          margin: -$value;
+        }
+      }
+      @each $direction, $direction-value in map-deep-get-values($helper, 'directions'){
+        @if $direction == 'x' {
+          .#{$prefix}margin-#{$direction}-#{$name} {
             margin-left: $value;
             margin-right: $value;
           }
-          @if $name != '0' and $name != 'auto' {
-            .#{$prefix}-m-#{$name1}-#{$name} {
-              margin-left: -$value;
-              margin-right: -$value;
-            }
-          }
-        } @else if $name1 == 'y' {
           @if $name != 'auto' {
-            .#{$prefix}p-#{$name1}-#{$name} {
-              padding-top: $value;
-              padding-bottom: $value;
+            @if $value != 0 {
+              .#{$prefix}-margin-#{$direction}-#{$name} {
+                margin-left: -$value;
+                margin-right: -$value;
+              }
             }
           }
-          .#{$prefix}m-#{$name1}-#{$name} {
+        } @else if $direction == 'y' {
+          .#{$prefix}margin-#{$direction}-#{$name} {
             margin-top: $value;
             margin-bottom: $value;
           }
-          @if $name != '0' and $name != 'auto'{
-            .#{$prefix}-m-#{$name1}-#{$name} {
-              margin-top: -$value;
-              margin-bottom: -$value;
+          @if $name != 'auto' {
+            @if $value != 0 {
+              .#{$prefix}-margin-#{$direction}-#{$name} {
+                margin-top: -$value;
+                margin-bottom: -$value;
+              }
             }
           }
         } @else {
+          .#{$prefix}margin-#{$direction}-#{$name} {
+            margin-#{$direction}: $value;
+          }
           @if $name != 'auto' {
-            .#{$prefix}p-#{$name1}-#{$name} {
-              padding-#{$value1}: $value;
-            }
-          }
-          .#{$prefix}m-#{$name1}-#{$name} {
-            margin-#{$value1}: $value;
-          }
-          @if $name != '0' and $name != 'auto' {
-            .#{$prefix}-m-#{$name1}-#{$name} {
-              margin-#{$value1}: -$value;
+            @if $value != 0 {
+              .#{$prefix}-margin-#{$direction}-#{$name} {
+                margin-#{$direction}: -$value;
+              }
             }
           }
         }
-      }
-    }
-    
-    @each $name, $value in map-merge(map-deep-get($config, 'spacings'), map-deep-get($config, 'width')){
-      .#{$prefix}w-#{$name}{
-        width: $value;
-      }
-    }
-    
-    @each $name, $value in map-merge(map-deep-get($config, 'spacings'), map-deep-get($plugins, 'width')) {  
-      .#{$prefix}min-w-#{$name}{
-        min-width: $value;
-      }
-      .#{$prefix}max-w-#{$name}{
-        max-width: $value;
-      }
-    }
-   
-    @each $name, $value in map-merge(map-deep-get($config, 'spacings'), map-deep-get($plugins, 'height')) {
-      .#{$prefix}h-#{$name}{
-        height: $value;
-      }
-      .#{$prefix}min-h-#{$name}{
-        min-height: $value;
-      }
-      .#{$prefix}max-w-#{$name}{
-        max-height: $value;
       }
     }
 
-    @each $varName in map-deep-get($plugins, 'variants') {
+    @each $name, $value in map-deep-get-values($config, 'spacings') {
+      .#{$prefix}padding-#{$name} {
+        padding: $value;
+      }
+      @each $direction, $direction-value in map-deep-get-values($helper, 'directions'){
+        @if $direction == 'x' {
+          .#{$prefix}padding-#{$direction}-#{$name} {
+            padding-left: $value;
+            padding-right: $value;
+          }
+        } @else if $direction == 'y' {
+          .#{$prefix}padding-#{$direction}-#{$name} {
+            padding-top: $value;
+            padding-bottom: $value;
+          }
+        } @else {
+          .#{$prefix}padding-#{$direction}-#{$name} {
+            padding-#{$direction}: $value;
+          }
+        }
+      }
+    }
+
+    @each $varName in map-deep-get-values($helper, 'variants') {
       $varPrefix : '';
       $varPostfix : '';
-      @if $varName != 'normal' {
+      @if $varName != 'default' {
         $varPrefix:'#{$varName}\\:';
         $varPostfix: '\:#{$varName}';
       }
-      /* ----------------- TYPOGRAPHY -----------------*/ 
-      @each $name, $value in map-deep-get($config, 'colors') {
+      @each $name, $value in map-deep-get-values($config, 'colors') {
         .#{$prefix}#{$varPrefix}text-#{$name}#{$varPostfix} {
           color: $value;
         }
-        .#{$prefix}#{$varPrefix}border-#{$name}#{$varPostfix} {
+        .#{$prefix}#{$varPrefix}border-color-#{$name}#{$varPostfix} {
           border-color: $value;
         }
-        .#{$prefix}#{$varPrefix}bg-#{$name}#{$varPostfix} {
+        .#{$prefix}#{$varPrefix}background-color-#{$name}#{$varPostfix} {
           background-color: $value;
-        }
-        @if map-deep-get($config, 'useColorWithOpacity') == true {
-          @each $name1, $value1 in map-deep-get($config, 'opacity') {
-            .#{$prefix}#{$varPrefix}text-#{$name}-opacity-#{$name1}#{$varPostfix} {
-              color: rgba($value, $value1);
-            }
-            .#{$prefix}#{$varPrefix}border-#{$name}-opacity-#{$name1}#{$varPostfix} {
-              border-color: rgba($value, $value1);
-            }
-            .#{$prefix}#{$varPrefix}bg-#{$name}-opacity-#{$name1}#{$varPostfix} {
-              background-color: rgba($value, $value1);
-            }
-          }
         }
       }
     }

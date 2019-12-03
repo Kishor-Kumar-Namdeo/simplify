@@ -14,6 +14,7 @@ $defaultTheme: (
     '100': 1,
   ),
   colors: (
+    transparent: transparent,
     white: #fff,
     black: #000,
     gray: #808080,
@@ -24,7 +25,6 @@ $defaultTheme: (
     info: #1564e2,
     success: #00d66b
   ),
-  useColorWithOpacity: false,
   spacings: (
     '0': 0,
     '1': 0.25rem,
@@ -45,7 +45,7 @@ $defaultTheme: (
     '56': 14rem,
     '64': 16rem
   ),
-  fontSizes: (
+  font-size: (
     xxs: 0.5rem,
     xs: 0.75rem,
     sm: 0.875rem,
@@ -58,14 +58,14 @@ $defaultTheme: (
     5xl: 3rem,
     6xl: 4rem
   ),
-  fontWeight: (
+  font-weight: (
     normal: 400,
     medium: 500,
     semibold: 600,
     bold: 700,
     black: 900,
   ),
-  borderWidths: (
+  border-width: (
     default: 1px,
     0: 0,
     2: 2px,
@@ -73,14 +73,7 @@ $defaultTheme: (
     6: 6px,
     8: 8px
   ),
-  borderStyle: (
-    solid: solid,
-    dashed: dashed,
-    dotted: dotted,
-    double: double,
-    none: none
-  ),
-  borderRadius: (
+  border-radius: (
     default: 4px,
     none: 0,
     2: 2px,
@@ -89,7 +82,7 @@ $defaultTheme: (
     10: 10px,
     full: 50%
   ),
-  zIndex: (
+  z-index: (
     auto: auto,
     0: 0,
     10: 10,
@@ -99,7 +92,16 @@ $defaultTheme: (
     50: 50,
     100: 100,
   ),
- 
+  box-shadow: (
+    default: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+    md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+    lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+    xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+    '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+    inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+    outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
+    none: 'none',
+  ),
   width: (
     'auto': auto,
     '1-by-2': 50%,
@@ -130,83 +132,27 @@ $defaultTheme: (
     '11-by-12': 91.666667%,
     'full': 100%,
     'screen': 100vw,
-  )
+  ),
 );
 
-
-$plugins: (
-  textAligns: (left,  right, center, justify),
-  textTransforms: (
+$constants: (
+  text-align: (
+    left: left,
+    right: right,
+    center: center,
+    justify: justify
+  ),
+  text-transform: (
     'uppercase': uppercase,
     'lowercase': lowercase,
     'capitalize': capitalize,
-    'normal': none
+    'none': none
   ),
-  textDecorations: (
+  text-decoration: (
     'underline': underline,
     'line-through': line-through,
     'capitalize': capitalize,
-    'no-underline': none
-  ),
-  directions: (
-    'x': x,
-    'y': y,
-    'l': left,
-    'r': right,
-    't': top,
-    'b': bottom
-  ),
-  backgroundPosition: (
-    bottom: bottom,
-    center: center,
-    left: left,
-    'left-bottom': left bottom,
-    'left-top': left top,
-    right: right,
-    'right-bottom': right bottom,
-    'right-top': right top,
-    top: top,
-  ),
-  backgroundSize: (
-    auto: auto,
-    cover: cover,
-    contain: contain,
-  ),
-  backgroundAttachment: (
-    fixed: fixed,
-    local: local,
-    scroll: scroll,
-  ),
-  backgroundRepeat: (
-    repeat: repeat,
-    'no-repeat': no-repeat,
-    'repeat-x': repeat-x,
-    'repeat-y': repeat-y,
-    round: round,
-    space: space
-  ),
-  boxShadow: (
-    default: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-    md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-    lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-    xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-    '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-    inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
-    outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
-    none: 'none',
-  ),
-  height: (
-    'auto': auto,
-    'px': 1px,
-    'full': 100%,
-    'screen': 100vh,
-  ),
-  width: (
-    'auto': auto,
-    'px': 1px,
-    'half': 50%,
-    'full': 100%,
-    'screen': 100vw,
+    'none': none
   ),
   display: (
     block: block,
@@ -218,28 +164,28 @@ $plugins: (
     table-cell: table-cell,
     none: none
   ),
-  alignContent: (
+  align-content: (
     center: center,
     flex-start: flex-start,
     flex-end: flex-end,
     space-between: space-between,
     space-around: space-around,
   ),
-  alignItems: (
+  align-items: (
     flex-start: flex-start,
     flex-end: flex-end,
     center: center,
     baseline: baseline,
     stretch: stretch
   ),
-  alignSelf: (
+  align-self: (
     auto: auto,
     flex-start: flex-start,
     flex-end: flex-end,
     center: center,
     stretch: stretch
   ),
-  justifyContent: (
+  justify-content: (
     center: center,
     flex-start: flex-start,
     flex-end: flex-end,
@@ -250,7 +196,7 @@ $plugins: (
   appearance: (
     none: none
   ),
-  flexDirection: (
+  flex-direction: (
     row: row,
     row-reverse: row-reverse,
     column: column,
@@ -262,18 +208,47 @@ $plugins: (
     initial: 0 1 auto,
     none: none,
   ),
-  flexGrow: (
+  flex-grow: (
     0: 0,
     default: 1,
   ),
-  flexShrink: (
+  flex-shrink: (
     0: 0,
     default: 1,
   ),
-  flexWrap: (
-    wrap: wrap,
-    wrap-reverse: wrap-reverse,
-    no-wrap: nowrap
+  flex-wrap: (
+    default: wrap,
+    reverse: wrap-reverse,
+    nowrap: nowrap
+  ),
+  background-position: (
+    bottom: bottom,
+    center: center,
+    left: left,
+    'left-bottom': left bottom,
+    'left-top': left top,
+    right: right,
+    'right-bottom': right bottom,
+    'right-top': right top,
+    top: top,
+  ),
+  background-size: (
+    auto: auto,
+    cover: cover,
+    contain: contain,
+  ),
+  background-attachment: (
+    fixed: fixed,
+    local: local,
+    scroll: scroll,
+  ),
+  background-repeat: (
+    repeat: repeat,
+    'no-repeat': no-repeat,
+    'x': repeat-x,
+    'y': repeat-y,
+    round: round,
+    space: space
   ),
   order: (
     first: -9999,
@@ -292,168 +267,179 @@ $plugins: (
     '11': 11,
     '12': 12,
   ),
-  
-  variants: 'normal' 'hover' 'focus'
+  position:(
+    fixed: fixed,
+    absolute: absolute,
+    relateive: relative,
+    sticky: sticky,
+    static: static,
+    unset: unset
+  ),
+  border-style: (
+    solid: solid,
+    dashed: dashed,
+    dotted: dotted,
+    double: double,
+    none: none
+  ),
+  width: (),
+  font-size: (),
+  font-weight: (),
+  font-style:(
+    italic: italic,
+    normal: normal
+  ),
+  border-width: (),
+  border-radius: (),
+  z-index: (),
+  box-shadow: (),
+  opacity:(),
+  // mislanius
+  top: (
+    0: 0,
+    auto: auto,
+    full: 100%
+  ),
+  bottom: (
+    auto: auto,
+    0: 0,
+    full: 100%
+  ),
+  left: (
+    auto: auto,
+    0: 0,
+    full: 100%
+  ),
+  right: (
+    auto: auto,
+    0: 0,
+    full: 100%
+  ),
+  object-fit: (
+    contain: contain,
+    cover: cover,
+    fill: fill,
+    none: none,
+    scale-dow: 'scale-down'
+  ),
+  float: (
+    right: right,
+    left: left,
+    none: none,
+  ),
+  object-position: (
+    bottom: bottom,
+    center: center,
+    left: left,
+    'left-bottom': left bottom,
+    'left-top': left top,
+    right: right,
+    'right-bottom': right bottom,
+    'right-top': right top,
+    top: top
+  ),
+  overflow: (
+    hidden: hidden,
+    visible: visible,
+    scroll: scroll,
+  ),
+  visibility: (
+    visible: visible,
+    hidden: hidden
+  ),
+  letter-spacing: (
+    xs: '-0.05em',
+    sm: '-0.025em',
+    normal: 0,
+    md: '0.025em',
+    lg: '0.05em',
+    xl: '0.1em'
+  ),
+  line-height: (
+    none: 0,
+    normal: 1.25,
+    default: 1.5,
+    double: 2
+  ),
+  list-style-type: (
+    none: none,
+    disc: disc,
+    circle: circle,
+    decimal: decimal,
+    square: square,
+    lower-alpha: lower-alpha,
+    upper-alpha: upper-alpha
+  ),
+  list-style-position: (
+    inside: inside,
+    outside: outside
+  ),
+  vertical-align: (
+    baseline: baseline,
+    top: top,
+    middle: middle,
+    bottom: bottom,
+    text-top: text-top,
+    text-bottom: text-bottom
+  ),
+  white-space: (
+    normal: normal,
+    nowrap: nowrap,
+    pre: pre,
+    pre-line: pre-line,
+    pre-wrap: pre-wrap
+  ),
+  cursor: (
+    auto: auto,
+    normal: default,
+    pointer: pointer,
+    wait: wait,
+    text: text,
+    move: move,
+    not-allowed: not-allowed
+  ),
+  pointer-events:(
+    none: none,
+    auto: auto
+  ),
+  outline: (
+    none: 0
+  ),
+  resize: (
+    none: none,
+    both: both,
+    x: vertical,
+    y: horizontal
+  ),
+  user-select: (
+    none: none,
+    text: text,
+    all: all,
+    auto: auto
+  )
 );
 
-@if variable-exists(theme) {
-  $config: $theme;
-} @else {
-  $config: $defaultTheme;
-}
-
-
-@function str-replace($string, $search, $replace: '') {
-  $index: str-index($string, $search);
-  @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-  }
-  @return $string;
-}
-
-@function formated-name($string) {
-  $chars: ( ':' : '\:');
-  @each $str, $rpc in $chars {
-   $string: str-replace($string, $str, $rpc) 
-  }
-  @return $string;
-}
-
-@function map-deep-get($map, $keys...) {
-  @each $key in $keys {
-      $map: map-get($map, $key);
-  }
-  @return $map;
-}
-
-@mixin screen($size, $value) {
-  @if $size == 'base'{
-    @content;
-  } @else {
-    @media screen and (min-width: $value){
-      @content
-    }
-  }
-};
-
-/* Reset default css tag & selecters*/
-blockquote,
-dl,
-dd,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hr,
-figure,
-p,
-pre {
-  margin: 0;
-}
-button {
-  background: transparent;
-  padding: 0;
-}
-button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-}
-
-fieldset {
-  margin: 0;
-  padding: 0;
-}
-
-ol,
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  line-height: 1.5;
-}
-::before,
-::after {
-  box-sizing: border-box; 
-  border-width: 0;
-  border-style: solid;
-  border-color: #e2e8f0
-}
-
-hr {
-  border-top-width: 1px;
-}
-
-img {
-  border-style: solid;
-}
-
-textarea {
-  resize: vertical;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: #a0aec0;
-}
-
-button,
-[role="button"] {
-  cursor: pointer;
-}
-
-table {
-  border-collapse: collapse;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: inherit;
-  font-weight: inherit;
-}
-a {
-  color: inherit;
-  text-decoration: inherit;
-}
-button,
-input,
-optgroup,
-select,
-textarea {
-  padding: 0;
-  line-height: inherit;
-  color: inherit;
-}
-
-pre,
-code,
-kbd,
-samp {
-  font-family: inherit
-}
-
-img,
-svg,
-video,
-canvas,
-audio,
-iframe,
-embed,
-object {
-  display: block;
-  vertical-align: middle;
-}
-img,
-video {
-  max-width: 100%;
-  height: auto;
-}
+$helper: (
+  directions: (
+    'x': x,
+    'y': y,
+    'left': left,
+    'right': right,
+    'top': top,
+    'bottom': bottom
+  ),
+  height: (
+    'auto': auto,
+    'px': 1px,
+    'full': 100%,
+    'screen': 100vh,
+  ),
+  width: (
+    'auto': auto,
+    'px': 1px,
+    'half': 50%,
+    'full': 100%,
+    'screen': 100vw,
+  ),
+  variants: 'default' 'hover' 'focus'
+);
