@@ -1,7 +1,7 @@
 @import './scss/variables';
 @import './scss/functions-mixins';
 @import './scss/mini-reset';
-
+$test: '';
 @each $screen, $size in map-merge(('default': default ), map-deep-get($config, 'screens')) {
   $prefix: '';
   @if $screen != 'default' {
