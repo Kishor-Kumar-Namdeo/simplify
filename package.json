@@ -1,7 +1,7 @@
 {
   "name": "simplify-css",
   "version": "1.0.0",
-  "description": "Simplify is progressive Flexbox based css framework.",
+  "description": "Simplify is utility-first modern CSS framework.",
   "main": "index.js",
   "scripts": {
     "build": "npm run build-clean && npm run build-sass && npm run build-autoprefix && npm run build-cleancss",
@@ -15,6 +15,9 @@
   "author": {
     "name": "Kishor Kumar Namdeo",
     "email": "kishor.umr@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/Kishor-Kumar-Namdeo/simplify/issues"
   },
   "license": "ISC",
   "devDependencies": {
