@@ -1,5 +1,4 @@
-$config: '';
-$defaultTheme: (
+$theme: (
   screens: (
     'sm': 640px,
     'md': 768px,
@@ -441,5 +440,5 @@ $helper: (
     'full': 100%,
     'screen': 100vw,
   ),
-  variants: 'default' 'hover' 'focus'
+  // variants: 'default' 'hover' 'focus'
 );

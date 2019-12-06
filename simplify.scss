@@ -1,15 +1,14 @@
 @import './scss/variables';
 @import './scss/functions-mixins';
 @import './scss/mini-reset';
-$test: '';
-@each $screen, $size in map-merge(('default': default ), map-deep-get($config, 'screens')) {
+
+@each $screen, $size in map-merge(('default': default ), map-deep-get($theme, 'screens')) {
   $prefix: '';
   @if $screen != 'default' {
     $prefix:'#{$screen}\\:';
   }
   @include screen ($screen, $size){
     @each $key, $val in $constants {
-      @if type-of($val) == 'map' {
         @each $name, $value in map-deep-get($constants, $key) {
           $finalVal: $value;
           @if type_of($value) == 'string' {
@@ -25,15 +24,10 @@ $test: '';
             }
           }
         }
-      } @else {
-        .#{$key} {
-          #{$key}: $val
-        }
-      }
     }
     @each $key, $val in (default: 'default', min: 'min', max: 'max') {
       @each $key1, $val1 in (height: 'height', width: 'width') {
-        @each $name, $value in map-merge(map-deep-get-values($config, 'spacings'),map-deep-get-values($helper, $val1))  {
+        @each $name, $value in map-merge(map-deep-get-values($theme, 'spacings'),map-deep-get-values($helper, $val1))  {
           @if $key == 'default' {
             .#{$prefix}#{$key1}-#{$name} {
               #{$val1}: $value;
@@ -47,7 +41,7 @@ $test: '';
       }
     }
 
-    @each $name, $value in map-merge(('auto': auto ), map-deep-get-values($config, 'spacings')){
+    @each $name, $value in map-merge(('auto': auto ), map-deep-get-values($theme, 'spacings')){
       .#{$prefix}margin-#{$name} {
         margin: $value;
       }
@@ -98,7 +92,7 @@ $test: '';
       }
     }
 
-    @each $name, $value in map-deep-get-values($config, 'spacings') {
+    @each $name, $value in map-deep-get-values($theme, 'spacings') {
       .#{$prefix}padding-#{$name} {
         padding: $value;
       }
@@ -128,7 +122,7 @@ $test: '';
         $varPrefix:'#{$varName}\\:';
         $varPostfix: '\:#{$varName}';
       }
-      @each $name, $value in map-deep-get-values($config, 'colors') {
+      @each $name, $value in map-deep-get-values($theme, 'colors') {
         .#{$prefix}#{$varPrefix}text-#{$name}#{$varPostfix} {
           color: $value;
         }

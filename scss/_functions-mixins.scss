@@ -1,21 +1,6 @@
-
-@if variable-exists(theme) {
-  $config: $theme;
-} @else {
-  $config: $defaultTheme;
-};
-
-@function formated-name($string) {
-  $chars: ( "'" : "");
-  @each $str, $rpc in $chars {
-    $string: str-replace($string, $str, $rpc) 
-  }
-  @return $string;
-};
-
 @function map-deep-get($map, $keys...) {
-  @if map-has-key($config, $keys...) {
-    @return map-merge(map-deep-get-values($config, $keys...), map-deep-get-values($map, $keys...));
+  @if map-has-key($theme, $keys...) {
+    @return map-merge(map-deep-get-values($theme, $keys...), map-deep-get-values($map, $keys...));
   } @else {
     @return map-deep-get-values($map, $keys...);
   }
