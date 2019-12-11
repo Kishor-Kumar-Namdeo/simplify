@@ -114,7 +114,7 @@
         }
       }
     }
-
+    
     @each $varName in map-deep-get-values($helper, 'variants') {
       $varPrefix : '';
       $varPostfix : '';
@@ -123,7 +123,7 @@
         $varPostfix: '\:#{$varName}';
       }
       @each $name, $value in map-deep-get-values($theme, 'colors') {
-        .#{$prefix}#{$varPrefix}text-#{$name}#{$varPostfix} {
+        .#{$prefix}#{$varPrefix}text-color-#{$name}#{$varPostfix} {
           color: $value;
         }
         .#{$prefix}#{$varPrefix}border-color-#{$name}#{$varPostfix} {

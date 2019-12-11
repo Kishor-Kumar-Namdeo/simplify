@@ -1,6 +1,6 @@
 {
   "name": "simplify-css",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simplify is utility-first modern CSS framework.",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/Kishor-Kumar-Namdeo/simplify/issues"
   },
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^9.7.2",
     "clean-css-cli": "^4.3.0",
@@ -34,8 +34,11 @@
   "keywords": [
     "css",
     "sass",
+    "scss",
     "flexbox",
+    "simplify-css",
     "responsive",
-    "framework"
+    "framework",
+    "utility-first-css"
   ]
 }
