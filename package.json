@@ -1,6 +1,6 @@
 {
   "name": "simplify-css",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Simplify is utility-first modern CSS framework.",
   "main": "index.js",
   "scripts": {
