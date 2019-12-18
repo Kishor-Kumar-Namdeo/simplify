@@ -22,8 +22,7 @@ button {
 }
 
 button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
+  outline: none;
 }
 
 fieldset {
@@ -140,6 +139,10 @@ img,
 video {
   max-width: 100%;
   height: auto;
+}
+
+.container {
+  max-width: 100%;
 }
 
 .text-align-left {
@@ -783,6 +786,14 @@ video {
   font-weight: 900;
 }
 
+.font-family-base {
+  font-family: "Poppins", sans-serif;
+}
+
+.font-family-title {
+  font-family: "Roboto", sans-serif;
+}
+
 .font-style-italic {
   font-style: italic;
 }
@@ -1279,6 +1290,14 @@ video {
      -moz-user-select: auto;
       -ms-user-select: auto;
           user-select: auto;
+}
+
+.fill-current {
+  fill: currentColor;
+}
+
+.stroke-current {
+  stroke: currentColor;
 }
 
 .height-0 {
@@ -3802,6 +3821,9 @@ video {
 }
 
 @media screen and (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
   .sm\:text-align-left {
     text-align: left;
   }
@@ -4294,6 +4316,12 @@ video {
   .sm\:font-weight-black {
     font-weight: 900;
   }
+  .sm\:font-family-base {
+    font-family: "Poppins", sans-serif;
+  }
+  .sm\:font-family-title {
+    font-family: "Roboto", sans-serif;
+  }
   .sm\:font-style-italic {
     font-style: italic;
   }
@@ -4673,6 +4701,12 @@ video {
        -moz-user-select: auto;
         -ms-user-select: auto;
             user-select: auto;
+  }
+  .sm\:fill-current {
+    fill: currentColor;
+  }
+  .sm\:stroke-current {
+    stroke: currentColor;
   }
   .sm\:height-0 {
     height: 0;
@@ -6594,6 +6628,9 @@ video {
 }
 
 @media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
   .md\:text-align-left {
     text-align: left;
   }
@@ -7086,6 +7123,12 @@ video {
   .md\:font-weight-black {
     font-weight: 900;
   }
+  .md\:font-family-base {
+    font-family: "Poppins", sans-serif;
+  }
+  .md\:font-family-title {
+    font-family: "Roboto", sans-serif;
+  }
   .md\:font-style-italic {
     font-style: italic;
   }
@@ -7465,6 +7508,12 @@ video {
        -moz-user-select: auto;
         -ms-user-select: auto;
             user-select: auto;
+  }
+  .md\:fill-current {
+    fill: currentColor;
+  }
+  .md\:stroke-current {
+    stroke: currentColor;
   }
   .md\:height-0 {
     height: 0;
@@ -9386,6 +9435,9 @@ video {
 }
 
 @media screen and (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
   .lg\:text-align-left {
     text-align: left;
   }
@@ -9878,6 +9930,12 @@ video {
   .lg\:font-weight-black {
     font-weight: 900;
   }
+  .lg\:font-family-base {
+    font-family: "Poppins", sans-serif;
+  }
+  .lg\:font-family-title {
+    font-family: "Roboto", sans-serif;
+  }
   .lg\:font-style-italic {
     font-style: italic;
   }
@@ -10257,6 +10315,12 @@ video {
        -moz-user-select: auto;
         -ms-user-select: auto;
             user-select: auto;
+  }
+  .lg\:fill-current {
+    fill: currentColor;
+  }
+  .lg\:stroke-current {
+    stroke: currentColor;
   }
   .lg\:height-0 {
     height: 0;
@@ -12178,6 +12242,9 @@ video {
 }
 
 @media screen and (min-width: 1281px) {
+  .container {
+    max-width: 1281px;
+  }
   .xl\:text-align-left {
     text-align: left;
   }
@@ -12670,6 +12737,12 @@ video {
   .xl\:font-weight-black {
     font-weight: 900;
   }
+  .xl\:font-family-base {
+    font-family: "Poppins", sans-serif;
+  }
+  .xl\:font-family-title {
+    font-family: "Roboto", sans-serif;
+  }
   .xl\:font-style-italic {
     font-style: italic;
   }
@@ -13049,6 +13122,12 @@ video {
        -moz-user-select: auto;
         -ms-user-select: auto;
             user-select: auto;
+  }
+  .xl\:fill-current {
+    fill: currentColor;
+  }
+  .xl\:stroke-current {
+    stroke: currentColor;
   }
   .xl\:height-0 {
     height: 0;

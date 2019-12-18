@@ -1,4 +1,4 @@
-@import './scss/variables';
+@import './scss/helpers';
 @import './scss/functions-mixins';
 @import './scss/mini-reset';
 
@@ -8,6 +8,15 @@
     $prefix:'#{$screen}\\:';
   }
   @include screen ($screen, $size){
+    @if $screen != 'default' {
+      .container{
+        max-width: $size;
+      }
+    } @else {
+      .container{
+        max-width: 100%;
+      }
+    }
     @each $key, $val in $constants {
         @each $name, $value in map-deep-get($constants, $key) {
           $finalVal: $value;
