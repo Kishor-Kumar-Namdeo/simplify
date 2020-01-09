@@ -160,25 +160,6 @@ $constants: (
       italic: italic,
       normal: normal
     ),
-    border-width: (
-      default: 1px,
-      0: 0,
-      2: 2px,
-      4: 4px,
-      6: 6px,
-      8: 8px
-    ),
-    
-    border-radius: (
-      default: 4px,
-      none: 0,
-      2: 2px,
-      6: 6px,
-      8: 8px,
-      10: 10px,
-      full: 50%
-    ),
-    
     z-index: (
       auto: auto,
       0: 0,
@@ -319,7 +300,8 @@ $constants: (
     ),
     stroke: (
       current: currentColor
-    )
+    ),
+    transition: ()
   );
   
   $helper: (
@@ -344,5 +326,23 @@ $constants: (
       'full': 100%,
       'screen': 100vw,
     ),
+    border-width: (
+      default: 1px,
+      0: 0,
+      2: 2px,
+      4: 4px,
+      6: 6px,
+      8: 8px
+    ),
+    border-radius: (
+      default: 4px,
+      none: 0,
+      2: 2px,
+      6: 6px,
+      8: 8px,
+      10: 10px,
+      25: 25px,
+      full: 50%
+    ),    
     variants: 'default' 'hover' 'focus'
   );

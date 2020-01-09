@@ -104,4 +104,9 @@ $theme: (
     'full': 100%,
     'screen': 100vw,
   ),
+  transition: (
+    default: 'all .5s ease-in-out',
+    fast: 'all .2s ease-in-out',
+    slow: 'all .8s ease-in-out'
+  )
 );

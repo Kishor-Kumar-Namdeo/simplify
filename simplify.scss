@@ -1,3 +1,4 @@
+@import './scss/variables';
 @import './scss/helpers';
 @import './scss/functions-mixins';
 @import './scss/mini-reset';
@@ -123,7 +124,58 @@
         }
       }
     }
-    
+
+    @each $name, $value in map-deep-get-values($helper, 'border-width') {
+      @if $name == 'default' {
+        .#{$prefix}border {
+          border-width: $value;
+        }
+      } @else {
+        .#{$prefix}border-#{$name} {
+          border-width: $value;
+        }
+      }
+      @each $direction, $direction-value in map-deep-get-values($helper, 'directions'){
+        $newName: #{$prefix}border-#{$direction}-#{$name};
+        @if $name == 'default' {
+          $newName: #{$prefix}border-#{$direction};
+        }
+        @if $direction == 'x' {
+          .#{$newName} {
+            border-left-width: $value;
+            border-right-width: $value;
+          }
+        } @else if $direction == 'y' {
+          .#{$newName} {
+            border-top-width: $value;
+            border-bottom-width: $value;
+          }
+        } @else {
+          .#{$newName} {
+            border-#{$direction}-width: $value;
+          }
+        }
+      }
+    }
+
+    @each $name, $value in map-deep-get-values($helper, 'border-radius') {
+      @if $name == 'default' {
+        .#{$prefix}border-radius {
+          border-radius: $value;
+        }
+      } @else {
+        .#{$prefix}border-radius-#{$name} {
+          border-radius: $value;
+        }
+      }
+      $border-radius-direction: 'top-left' 'top-right' 'bottom-left' 'bottom-right';
+      @each $dir in $border-radius-direction {
+        .#{$prefix}border-radius-#{$dir}-#{$name} {
+          border-#{$dir}-radius: $value;
+        }
+      }
+    }
+
     @each $varName in map-deep-get-values($helper, 'variants') {
       $varPrefix : '';
       $varPostfix : '';
@@ -143,5 +195,7 @@
         }
       }
     }
+
+    
   }
 }
