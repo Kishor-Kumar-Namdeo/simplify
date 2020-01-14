@@ -76,7 +76,7 @@ $theme: (
   width: (
     'auto': auto,
     '1-by-2': 50%,
-    '1-by-3': 3.333333%,
+    '1-by-3': 33.333333%,
     '2-by-3': 66.666667%,
     '1-by-4': 25%,
     '2-by-4': 50%,
@@ -104,9 +104,5 @@ $theme: (
     'full': 100%,
     'screen': 100vw,
   ),
-  transition: (
-    default: 'all .5s ease-in-out',
-    fast: 'all .2s ease-in-out',
-    slow: 'all .8s ease-in-out'
-  )
+  transition: ()
 );
